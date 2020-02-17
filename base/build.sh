@@ -2,6 +2,11 @@
 
 set -eux
 
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BASE_DIR="$REPO_ROOT/base"
+
+pushd $BASE_DIR
+
 source definitions.sh
 
 for debrel in ${DEBIAN_RELEASES[@]}; do
@@ -12,5 +17,11 @@ for debrel in ${DEBIAN_RELEASES[@]}; do
         --build-arg DEBIAN_RELEASE="$debrel" \
         .
 done
+
+for derived_build in $(find derived -name "build.sh"); do
+    ./$derived_build
+done
+
+popd
 
 echo "Done!"

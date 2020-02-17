@@ -15,5 +15,5 @@ get_base_image_tag() {
         echo "usage: get_base_image_tag <debian_release>"
         return 1
     fi
-    echo "$BASE_IMAGE_NAME:$BASE_IMAGE_VERSION.$1.base"
+    echo "$BASE_IMAGE_NAME:$BASE_IMAGE_VERSION.$1"
 }

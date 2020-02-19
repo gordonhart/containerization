@@ -15,6 +15,7 @@ for debrel in ${DEBIAN_RELEASES[@]}; do
     docker build \
         --tag "$THIS_IMAGE_TAG" \
         --build-arg DEBIAN_RELEASE="$debrel" \
+        --build-arg USER_NAME="$USER_NAME" \
         .
 done
 

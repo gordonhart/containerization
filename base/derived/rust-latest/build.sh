@@ -17,6 +17,7 @@ for debrel in ${DEBIAN_RELEASES[@]}; do
     docker build \
         --tag "$THIS_IMAGE" \
         --build-arg BASE_IMAGE="$BASE_IMAGE" \
+        --build-arg USER_NAME="$USER_NAME" \
         --file "$THIS_DIR/Dockerfile" \
         .
 done

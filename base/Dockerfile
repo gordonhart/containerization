@@ -1,12 +1,16 @@
 ARG DEBIAN_RELEASE=buster
 FROM debian:$DEBIAN_RELEASE
-MAINTAINER gordon.hart2@gmail.com
+
+ARG USER_NAME=gordonhart
+ARG MAINTAINER_EMAIL=gordon.hart2@gmail.com
+
+LABEL maintainer=$MAINTAINER_EMAIL
 
 # add default user/group/home directory
-RUN groupadd --gid 1000 gordonhart
-RUN useradd --gid 1000 --uid 1000 --create-home --shell /bin/bash gordonhart
-WORKDIR /home/gordonhart
-RUN chown -R gordonhart:gordonhart /home/gordonhart
+RUN groupadd --gid 1000 $USER_NAME
+RUN useradd --gid 1000 --uid 1000 --create-home --shell /bin/bash $USER_NAME
+WORKDIR /home/$USER_NAME
+RUN chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 
 # change root password to 'root', security is not very important for the
 # intended use case of these images
@@ -32,11 +36,11 @@ ADD dotfiles/.inputrc .inputrc
 ADD dotfiles/.pdbrc .pdbrc
 ADD dotfiles/.vimrc .vimrc
 
-USER gordonhart
-WORKDIR /home/gordonhart
-ADD --chown=gordonhart:gordonhart dotfiles/.bashrc .bashrc
-ADD --chown=gordonhart:gordonhart dotfiles/.inputrc .inputrc
-ADD --chown=gordonhart:gordonhart dotfiles/.pdbrc .pdbrc
-ADD --chown=gordonhart:gordonhart dotfiles/.vimrc .vimrc
+USER $USER_NAME
+WORKDIR /home/$USER_NAME
+ADD --chown=1000:1000 dotfiles/.bashrc .bashrc
+ADD --chown=1000:1000 dotfiles/.inputrc .inputrc
+ADD --chown=1000:1000 dotfiles/.pdbrc .pdbrc
+ADD --chown=1000:1000 dotfiles/.vimrc .vimrc
 
 CMD ["/bin/bash", "-l"]

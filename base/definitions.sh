@@ -2,7 +2,9 @@
 
 set -eux
 
-BASE_IMAGE_NAME="gordonhart/base"
+USER_NAME="gordonhart"
+REPO_NAME="base"
+BASE_IMAGE_NAME="$USER_NAME/$REPO_NAME"
 BASE_IMAGE_VERSION="$(git describe --tags --always --dirty)"
 
 DEBIAN_RELEASES=(

@@ -8,7 +8,7 @@ THIS_DIR="$BASE_DIR/derived/rust-latest"
 
 source "$BASE_DIR/definitions.sh"
 
-pushd $THIS_DIR
+pushd $BASE_DIR
 
 for debrel in ${DEBIAN_RELEASES[@]}; do
     BASE_IMAGE="$(get_base_image_tag "$debrel")"
@@ -17,6 +17,7 @@ for debrel in ${DEBIAN_RELEASES[@]}; do
     docker build \
         --tag "$THIS_IMAGE" \
         --build-arg BASE_IMAGE="$BASE_IMAGE" \
+        --file "$THIS_DIR/Dockerfile" \
         .
 done
 

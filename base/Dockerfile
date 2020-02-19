@@ -8,8 +8,8 @@ RUN useradd --gid 1000 --uid 1000 --create-home --shell /bin/bash gordonhart
 WORKDIR /home/gordonhart
 RUN chown -R gordonhart:gordonhart /home/gordonhart
 
-# change root password to 'root', security is not important for an interactive
-# container on a trusted system
+# change root password to 'root', security is not very important for the
+# intended use case of these images
 RUN echo "root:root" | chpasswd
 
 ENV TERM xterm-256color

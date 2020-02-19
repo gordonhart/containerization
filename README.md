@@ -1,8 +1,11 @@
 # Containerization Utilities
 
-- `base`: interactive-ready base images derived from difffferent Debian
-  releases. Large and clunky for production use but comfortable for hacking and
+- `base`: interactive-ready base images derived from different Debian releases.
+  Large and clunky for production use but comfortable for hacking and
   exploration.
+    - e.g. `gordonhart/base:v0.1.0.buster`
+    - `rust`: the above with the latest toolchain from [rustup](https://rustup.rs/)
+        - e.g. `gordonhart/base:v0.1.0.buster.rust`
 
 ## Usage
 

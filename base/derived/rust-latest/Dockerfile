@@ -5,7 +5,11 @@ MAINTAINER gordon.hart2@gmail.com
 # run rustup installer for root and user, accepting defaults
 
 USER root
+WORKDIR /root
+ADD dotfiles/.cargo .cargo
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 USER gordonhart
+WORKDIR /home/gordonhart
+ADD dotfiles/.cargo .cargo
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

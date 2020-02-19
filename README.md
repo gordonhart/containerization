@@ -23,3 +23,7 @@ $ make push
 # all of the above:
 $ make all
 ```
+
+The default image name is `gordonhart/base` and will include a user `gordonhart`
+with UID/GID 1000 and home `/home/gordonhart`. The user name and image name can
+be changed by modifying `base/definitions.sh`.

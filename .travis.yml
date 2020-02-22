@@ -1,0 +1,10 @@
+dist: bionic
+
+jobs:
+  include:
+    - stage: Build and push images
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - make submodules
+      - make build
+      - make push

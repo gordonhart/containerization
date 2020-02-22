@@ -14,7 +14,7 @@ for debrel in ${DEBIAN_RELEASES[@]}; do
     BASE_IMAGE="$(get_base_image_tag "$debrel")"
     THIS_IMAGE="$BASE_IMAGE.rust"
     echo "Pushing image $THIS_IMAGE..."
-    docker push $THIS_IMAGE_TAG
+    docker push $THIS_IMAGE
 done
 
 popd

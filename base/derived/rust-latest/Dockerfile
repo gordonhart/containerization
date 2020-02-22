@@ -3,12 +3,7 @@ FROM $BASE_IMAGE
 
 ARG USER_NAME=gordonhart
 
-# run rustup installer for root and user, accepting defaults
-
-USER root
-WORKDIR /root
-ADD dotfiles/.cargo .cargo
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# run rustup installer for user, accepting defaults
 
 USER $USER_NAME
 WORKDIR /home/$USER_NAME

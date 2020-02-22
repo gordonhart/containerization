@@ -1,0 +1,14 @@
+language: generic
+
+dist: bionic
+
+if: tag IS present
+
+jobs:
+  include:
+    - stage: Build and push images to DockerHub
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - make submodules
+      - make build
+      - make push

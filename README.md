@@ -1,4 +1,5 @@
 # Containerization Utilities
+[![Build Status](https://travis-ci.org/gordonhart/containerization.svg?branch=master)](https://travis-ci.org/gordonhart/containerization)
 
 - `base`: interactive-ready base images derived from different Debian releases.
   Large and clunky for production use but comfortable for hacking and

@@ -2,6 +2,11 @@
 
 set -eux
 
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+BASE_DIR="$REPO_ROOT/base"
+
+pushd $BASE_DIR
+
 source definitions.sh
 
 for debrel in ${DEBIAN_RELEASES[@]}; do
@@ -9,5 +14,11 @@ for debrel in ${DEBIAN_RELEASES[@]}; do
     echo "Pushing image $THIS_IMAGE_TAG..."
     docker push $THIS_IMAGE_TAG
 done
+
+for derived_push in $(find derived -name "push.sh"); do
+    ./$derived_push
+done
+
+popd
 
 echo "Done!"

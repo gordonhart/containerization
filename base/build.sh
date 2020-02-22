@@ -2,6 +2,11 @@
 
 set -eux
 
+#
+# TODO: there is currently a lot of copypasta between build/push scripts and
+# the derived build/push scripts -- refactor
+#
+
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 BASE_DIR="$REPO_ROOT/base"
 

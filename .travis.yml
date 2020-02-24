@@ -2,7 +2,7 @@ language: generic
 
 dist: bionic
 
-if: tag IS present
+if: tag IS present OR branch = master
 
 jobs:
   include:

@@ -1,6 +1,7 @@
 # Containerization Utilities
 [![Build Status](https://travis-ci.org/gordonhart/containerization.svg?branch=master)](https://travis-ci.org/gordonhart/containerization)
 [![Docker Pulls](https://img.shields.io/docker/pulls/gordonhart/base?style=flat&logo=docker)](https://hub.docker.com/r/gordonhart/base)
+[![Latest Tag](https://img.shields.io/github/v/tag/gordonhart/containerization?label=latest)](https://github.com/gordonhart/containerization/releases)
 
 - `base`: interactive-ready base images derived from different Debian releases.
   Large and clunky for production use but comfortable for hacking and
